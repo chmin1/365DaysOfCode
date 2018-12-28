@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		F9B8BCD721D2E1BE00D84A68 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B8BCD621D2E1BE00D84A68 /* AppDelegate.swift */; };
-		F9B8BCD921D2E1BE00D84A68 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B8BCD821D2E1BE00D84A68 /* ViewController.swift */; };
 		F9B8BCDC21D2E1BE00D84A68 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9B8BCDA21D2E1BE00D84A68 /* Main.storyboard */; };
 		F9B8BCDE21D2E1C000D84A68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9B8BCDD21D2E1C000D84A68 /* Assets.xcassets */; };
 		F9B8BCE121D2E1C000D84A68 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9B8BCDF21D2E1C000D84A68 /* LaunchScreen.storyboard */; };
 		F9B8BCEC21D2E1C000D84A68 /* YearOfCodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B8BCEB21D2E1C000D84A68 /* YearOfCodeTests.swift */; };
 		F9B8BCF721D2E1C000D84A68 /* YearOfCodeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B8BCF621D2E1C000D84A68 /* YearOfCodeUITests.swift */; };
+		F9B8BD0521D2F17200D84A68 /* YearViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B8BD0421D2F17200D84A68 /* YearViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +36,6 @@
 /* Begin PBXFileReference section */
 		F9B8BCD321D2E1BE00D84A68 /* YearOfCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YearOfCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9B8BCD621D2E1BE00D84A68 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F9B8BCD821D2E1BE00D84A68 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F9B8BCDB21D2E1BE00D84A68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F9B8BCDD21D2E1C000D84A68 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F9B8BCE021D2E1C000D84A68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +46,7 @@
 		F9B8BCF221D2E1C000D84A68 /* YearOfCodeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YearOfCodeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9B8BCF621D2E1C000D84A68 /* YearOfCodeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearOfCodeUITests.swift; sourceTree = "<group>"; };
 		F9B8BCF821D2E1C000D84A68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F9B8BD0421D2F17200D84A68 /* YearViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,11 +98,11 @@
 			isa = PBXGroup;
 			children = (
 				F9B8BCD621D2E1BE00D84A68 /* AppDelegate.swift */,
-				F9B8BCD821D2E1BE00D84A68 /* ViewController.swift */,
 				F9B8BCDA21D2E1BE00D84A68 /* Main.storyboard */,
 				F9B8BCDD21D2E1C000D84A68 /* Assets.xcassets */,
 				F9B8BCDF21D2E1C000D84A68 /* LaunchScreen.storyboard */,
 				F9B8BCE221D2E1C000D84A68 /* Info.plist */,
+				F9B8BD0421D2F17200D84A68 /* YearViewController.swift */,
 			);
 			path = YearOfCode;
 			sourceTree = "<group>";
@@ -256,8 +256,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F9B8BCD921D2E1BE00D84A68 /* ViewController.swift in Sources */,
 				F9B8BCD721D2E1BE00D84A68 /* AppDelegate.swift in Sources */,
+				F9B8BD0521D2F17200D84A68 /* YearViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
