@@ -34,11 +34,44 @@ class YearViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func generateColors() {
-        for i in 0..<weeks {
-            let progress = CGFloat(weeks-i)
-            let newRed = CGFloat((progress/52.0) * 171.0 + CGFloat(i)/52.0 * 178.0) / 255.0
-            let newGreen = CGFloat((progress/52.0) * 143.0 + CGFloat(i)/52.0 * 245.0) / 255.0
-            let newBlue = CGFloat((progress/52.0) * 255.0 + CGFloat(i)/52.0 * 255.0) / 255.0
+        for i in 0..<13 {
+            let progress = CGFloat(13-i)
+            let newRed = CGFloat((progress/13.0) * 255.0 + CGFloat(i)/13.0 * 165.0) / 255.0
+            let newGreen = CGFloat((progress/13.0) * 115.0 + CGFloat(i)/13.0 * 31.0) / 255.0
+            let newBlue = CGFloat((progress/13.0) * 8.0 + CGFloat(i)/13.0 * 255.0) / 255.0
+            self.gradientColors.append(UIColor(red: newRed,
+                                               green: newGreen,
+                                               blue: newBlue,
+                                               alpha: 1.0))
+        }
+        
+        for i in 0..<13 {
+            let progress = CGFloat(13-i)
+            let newRed = CGFloat((progress/13.0) * 165.0 + CGFloat(i)/13.0 * 99.0) / 255.0
+            let newGreen = CGFloat((progress/13.0) * 31.0 + CGFloat(i)/13.0 * 255.0) / 255.0
+            let newBlue = CGFloat((progress/13.0) * 255.0 + CGFloat(i)/13.0 * 172.0) / 255.0
+            self.gradientColors.append(UIColor(red: newRed,
+                                               green: newGreen,
+                                               blue: newBlue,
+                                               alpha: 1.0))
+        }
+        
+        for i in 0..<13 {
+            let progress = CGFloat(13-i)
+            let newRed = CGFloat((progress/13.0) * 99.0 + CGFloat(i)/13.0 * 5.0) / 255.0
+            let newGreen = CGFloat((progress/13.0) * 255.0 + CGFloat(i)/13.0 * 134.0) / 255.0
+            let newBlue = CGFloat((progress/13.0) * 172.0 + CGFloat(i)/13.0 * 255.0) / 255.0
+            self.gradientColors.append(UIColor(red: newRed,
+                                               green: newGreen,
+                                               blue: newBlue,
+                                               alpha: 1.0))
+        }
+        
+        for i in 0..<13 {
+            let progress = CGFloat(13-i)
+            let newRed = CGFloat((progress/13.0) * 5.0 + CGFloat(i)/13.0 * 255.0) / 255.0
+            let newGreen = CGFloat((progress/13.0) * 134.0 + CGFloat(i)/13.0 * 143.0) / 255.0
+            let newBlue = CGFloat((progress/13.0) * 255.0 + CGFloat(i)/13.0 * 212.0) / 255.0
             self.gradientColors.append(UIColor(red: newRed,
                                                green: newGreen,
                                                blue: newBlue,

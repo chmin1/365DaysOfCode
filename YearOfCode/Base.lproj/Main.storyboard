@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wQs-1U-Xvr">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="685"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="jlr-Bd-h7o">
                                     <size key="itemSize" width="50" height="50"/>
@@ -43,10 +43,10 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="wQs-1U-Xvr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9bp-Ri-laX"/>
-                            <constraint firstItem="wQs-1U-Xvr" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="FWD-dj-iZ2"/>
-                            <constraint firstItem="wQs-1U-Xvr" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Fb3-zK-vmY"/>
-                            <constraint firstItem="wQs-1U-Xvr" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="NTN-2s-n1g"/>
+                            <constraint firstItem="wQs-1U-Xvr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Kp9-NI-PR8"/>
+                            <constraint firstItem="wQs-1U-Xvr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="VSp-Ne-db2"/>
+                            <constraint firstItem="wQs-1U-Xvr" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Xrc-oG-CqD"/>
+                            <constraint firstItem="wQs-1U-Xvr" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="uGq-Lp-CY9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
