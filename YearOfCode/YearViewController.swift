@@ -13,8 +13,9 @@ class YearViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBOutlet weak var yearView: UICollectionView!
     
     var gradientColors: [UIColor] = []
-    let weeks = 52;
-    let days = 7;
+    var selectedDays = Set<IndexPath>()
+    let weeks = 73;
+    let days = 5;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +23,7 @@ class YearViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let flowLayout = yearView.collectionViewLayout as! UICollectionViewFlowLayout
         flowLayout.minimumInteritemSpacing = 5
         flowLayout.minimumLineSpacing = flowLayout.minimumInteritemSpacing
-        let cellsPerLine: CGFloat = 7;
+        let cellsPerLine: CGFloat = CGFloat(self.days);
         let interItemSpacingTotal = flowLayout.minimumLineSpacing * (cellsPerLine - 1)
         let width = yearView.frame.size.width / cellsPerLine - interItemSpacingTotal/cellsPerLine;
         flowLayout.sectionInset = UIEdgeInsets(top: 5, left: 0, bottom: 5, right: 0);
@@ -34,44 +35,44 @@ class YearViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func generateColors() {
-        for i in 0..<13 {
-            let progress = CGFloat(13-i)
-            let newRed = CGFloat((progress/13.0) * 255.0 + CGFloat(i)/13.0 * 165.0) / 255.0
-            let newGreen = CGFloat((progress/13.0) * 115.0 + CGFloat(i)/13.0 * 31.0) / 255.0
-            let newBlue = CGFloat((progress/13.0) * 8.0 + CGFloat(i)/13.0 * 255.0) / 255.0
+        for i in 0..<18 {
+            let progress = CGFloat(18-i)
+            let newRed = CGFloat((progress/18.0) * 255.0 + CGFloat(i)/18.0 * 165.0) / 255.0
+            let newGreen = CGFloat((progress/18.0) * 115.0 + CGFloat(i)/18.0 * 31.0) / 255.0
+            let newBlue = CGFloat((progress/18.0) * 8.0 + CGFloat(i)/18.0 * 255.0) / 255.0
             self.gradientColors.append(UIColor(red: newRed,
                                                green: newGreen,
                                                blue: newBlue,
                                                alpha: 1.0))
         }
         
-        for i in 0..<13 {
-            let progress = CGFloat(13-i)
-            let newRed = CGFloat((progress/13.0) * 165.0 + CGFloat(i)/13.0 * 99.0) / 255.0
-            let newGreen = CGFloat((progress/13.0) * 31.0 + CGFloat(i)/13.0 * 255.0) / 255.0
-            let newBlue = CGFloat((progress/13.0) * 255.0 + CGFloat(i)/13.0 * 172.0) / 255.0
+        for i in 0..<18 {
+            let progress = CGFloat(18-i)
+            let newRed = CGFloat((progress/18.0) * 165.0 + CGFloat(i)/18.0 * 99.0) / 255.0
+            let newGreen = CGFloat((progress/18.0) * 31.0 + CGFloat(i)/18.0 * 255.0) / 255.0
+            let newBlue = CGFloat((progress/18.0) * 255.0 + CGFloat(i)/18.0 * 172.0) / 255.0
             self.gradientColors.append(UIColor(red: newRed,
                                                green: newGreen,
                                                blue: newBlue,
                                                alpha: 1.0))
         }
         
-        for i in 0..<13 {
-            let progress = CGFloat(13-i)
-            let newRed = CGFloat((progress/13.0) * 99.0 + CGFloat(i)/13.0 * 5.0) / 255.0
-            let newGreen = CGFloat((progress/13.0) * 255.0 + CGFloat(i)/13.0 * 134.0) / 255.0
-            let newBlue = CGFloat((progress/13.0) * 172.0 + CGFloat(i)/13.0 * 255.0) / 255.0
+        for i in 0..<18 {
+            let progress = CGFloat(18-i)
+            let newRed = CGFloat((progress/18.0) * 99.0 + CGFloat(i)/18.0 * 5.0) / 255.0
+            let newGreen = CGFloat((progress/18.0) * 255.0 + CGFloat(i)/18.0 * 184.0) / 255.0
+            let newBlue = CGFloat((progress/18.0) * 172.0 + CGFloat(i)/18.0 * 255.0) / 255.0
             self.gradientColors.append(UIColor(red: newRed,
                                                green: newGreen,
                                                blue: newBlue,
                                                alpha: 1.0))
         }
         
-        for i in 0..<13 {
-            let progress = CGFloat(13-i)
-            let newRed = CGFloat((progress/13.0) * 5.0 + CGFloat(i)/13.0 * 255.0) / 255.0
-            let newGreen = CGFloat((progress/13.0) * 134.0 + CGFloat(i)/13.0 * 143.0) / 255.0
-            let newBlue = CGFloat((progress/13.0) * 255.0 + CGFloat(i)/13.0 * 212.0) / 255.0
+        for i in 0...18 {
+            let progress = CGFloat(18-i)
+            let newRed = CGFloat((progress/18.0) * 5.0 + CGFloat(i)/18.0 * 255.0) / 255.0
+            let newGreen = CGFloat((progress/18.0) * 184.0 + CGFloat(i)/18.0 * 143.0) / 255.0
+            let newBlue = CGFloat((progress/18.0) * 255.0 + CGFloat(i)/18.0 * 212.0) / 255.0
             self.gradientColors.append(UIColor(red: newRed,
                                                green: newGreen,
                                                blue: newBlue,
@@ -88,9 +89,23 @@ class YearViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = yearView.dequeueReusableCell(withReuseIdentifier: "yearCell", for: indexPath)
-        cell.backgroundColor = self.gradientColors[indexPath.section]
+        let cell = yearView.dequeueReusableCell(withReuseIdentifier: "yearCell", for: indexPath) as! yearCell
+        cell.layer.borderWidth = 2.5
+        cell.layer.borderColor = UIColor.black.cgColor
+        cell.dayLabel.text = "Day \((indexPath.section * self.days) + indexPath.row + 1)"
+        if cell.isSelected {
+            cell.backgroundColor = self.gradientColors[indexPath.section]
+        }
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = yearView.cellForItem(at: indexPath)
+        if cell!.isSelected {
+            cell!.backgroundColor = self.gradientColors[indexPath.section]
+        } else {
+            cell!.backgroundColor = UIColor.white
+        }
     }
     
 
