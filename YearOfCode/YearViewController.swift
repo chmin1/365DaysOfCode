@@ -31,6 +31,7 @@ class YearViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
         yearView.delegate = self;
         yearView.dataSource = self;
+        yearView.allowsMultipleSelection = true;
         generateColors()
     }
     
@@ -93,19 +94,26 @@ class YearViewController: UIViewController, UICollectionViewDelegate, UICollecti
         cell.layer.borderWidth = 2.5
         cell.layer.borderColor = UIColor.black.cgColor
         cell.dayLabel.text = "Day \((indexPath.section * self.days) + indexPath.row + 1)"
-        if cell.isSelected {
+        if selectedDays.contains(indexPath) {
             cell.backgroundColor = self.gradientColors[indexPath.section]
+        } else {
+            cell.backgroundColor = UIColor.white
         }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = yearView.cellForItem(at: indexPath)
-        if cell!.isSelected {
-            cell!.backgroundColor = self.gradientColors[indexPath.section]
-        } else {
-            cell!.backgroundColor = UIColor.white
+        cell!.backgroundColor = self.gradientColors[indexPath.section]
+        if !selectedDays.contains(indexPath) {
+            selectedDays.insert(indexPath)
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        let cell = yearView.cellForItem(at: indexPath)
+        cell?.backgroundColor = UIColor.white
+        selectedDays.remove(indexPath)
     }
     
 
