@@ -15,6 +15,7 @@
 		F9B8BCF721D2E1C000D84A68 /* YearOfCodeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B8BCF621D2E1C000D84A68 /* YearOfCodeUITests.swift */; };
 		F9B8BD0521D2F17200D84A68 /* YearViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B8BD0421D2F17200D84A68 /* YearViewController.swift */; };
 		F9B8BD0721D6F44400D84A68 /* yearCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B8BD0621D6F44400D84A68 /* yearCell.swift */; };
+		F9B8BD4721DA850300D84A68 /* YearOfCode.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F9B8BD4521DA850300D84A68 /* YearOfCode.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		F9B8BCF821D2E1C000D84A68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F9B8BD0421D2F17200D84A68 /* YearViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearViewController.swift; sourceTree = "<group>"; };
 		F9B8BD0621D6F44400D84A68 /* yearCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yearCell.swift; sourceTree = "<group>"; };
+		F9B8BD4621DA850300D84A68 /* YearOfCode.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = YearOfCode.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				F9B8BCE221D2E1C000D84A68 /* Info.plist */,
 				F9B8BD0421D2F17200D84A68 /* YearViewController.swift */,
 				F9B8BD0621D6F44400D84A68 /* yearCell.swift */,
+				F9B8BD4521DA850300D84A68 /* YearOfCode.xcdatamodeld */,
 			);
 			path = YearOfCode;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9B8BD4721DA850300D84A68 /* YearOfCode.xcdatamodeld in Sources */,
 				F9B8BCD721D2E1BE00D84A68 /* AppDelegate.swift in Sources */,
 				F9B8BD0721D6F44400D84A68 /* yearCell.swift in Sources */,
 				F9B8BD0521D2F17200D84A68 /* YearViewController.swift in Sources */,
@@ -590,6 +594,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F9B8BD4521DA850300D84A68 /* YearOfCode.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F9B8BD4621DA850300D84A68 /* YearOfCode.xcdatamodel */,
+			);
+			currentVersion = F9B8BD4621DA850300D84A68 /* YearOfCode.xcdatamodel */;
+			path = YearOfCode.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F9B8BCCB21D2E1BE00D84A68 /* Project object */;
 }
