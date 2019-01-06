@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class YearViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -16,6 +17,9 @@ class YearViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var selectedDays = Set<IndexPath>()
     let weeks = 73;
     let days = 5;
+    var context = NSManagedObjectContext()
+    var year = NSManagedObject()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +37,26 @@ class YearViewController: UIViewController, UICollectionViewDelegate, UICollecti
         yearView.dataSource = self;
         yearView.allowsMultipleSelection = true;
         generateColors()
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        context = appDelegate.persistentContainer.viewContext
+        let entitiy = NSEntityDescription.entity(forEntityName: "Year", in: context)
+        year = NSManagedObject(entity: entitiy!, insertInto: context)
+        year.setValue(selectedDays, forKey: "days")
+        fetchDays()
+    }
+    
+    func fetchDays() {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Year")
+        request.returnsObjectsAsFaults = false
+        do {
+            let result = try self.context.fetch(request) as! [NSManagedObject]
+            for data in result {
+                selectedDays = data.value(forKey: "days") as! Set<IndexPath>
+            }
+        } catch {
+            print("failed to fetch...")
+        }
     }
     
     func generateColors() {
@@ -107,6 +131,12 @@ class YearViewController: UIViewController, UICollectionViewDelegate, UICollecti
         cell!.backgroundColor = self.gradientColors[indexPath.section]
         if !selectedDays.contains(indexPath) {
             selectedDays.insert(indexPath)
+            year.setValue(selectedDays, forKey: "days")
+            do {
+               try context.save()
+            } catch {
+                print("failed to save...")
+            }
         }
     }
     
@@ -114,6 +144,12 @@ class YearViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let cell = yearView.cellForItem(at: indexPath)
         cell?.backgroundColor = UIColor.white
         selectedDays.remove(indexPath)
+        year.setValue(selectedDays, forKey: "days")
+        do {
+            try context.save()
+        } catch {
+            print("failed to save...")
+        }
     }
     
 
