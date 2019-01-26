@@ -36,7 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		F9B8BCD321D2E1BE00D84A68 /* YearOfCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YearOfCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9B8BCD321D2E1BE00D84A68 /* Year of Code.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Year of Code.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9B8BCD621D2E1BE00D84A68 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9B8BCDB21D2E1BE00D84A68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F9B8BCDD21D2E1C000D84A68 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -91,7 +91,7 @@
 		F9B8BCD421D2E1BE00D84A68 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F9B8BCD321D2E1BE00D84A68 /* YearOfCode.app */,
+				F9B8BCD321D2E1BE00D84A68 /* Year of Code.app */,
 				F9B8BCE721D2E1C000D84A68 /* YearOfCodeTests.xctest */,
 				F9B8BCF221D2E1C000D84A68 /* YearOfCodeUITests.xctest */,
 			);
@@ -148,7 +148,7 @@
 			);
 			name = YearOfCode;
 			productName = YearOfCode;
-			productReference = F9B8BCD321D2E1BE00D84A68 /* YearOfCode.app */;
+			productReference = F9B8BCD321D2E1BE00D84A68 /* Year of Code.app */;
 			productType = "com.apple.product-type.application";
 		};
 		F9B8BCE621D2E1C000D84A68 /* YearOfCodeTests */ = {
@@ -448,7 +448,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ChavaneMinto.YearOfCode;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Year of Code";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -466,7 +466,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ChavaneMinto.YearOfCode;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Year of Code";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

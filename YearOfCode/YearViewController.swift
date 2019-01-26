@@ -17,7 +17,7 @@ class YearViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var selectedDays = Set<IndexPath>()
     let weeks = 73;
     let days = 5;
-    var context = NSManagedObjectContext()
+    var context = NSManagedObjectContext.init(concurrencyType: .mainQueueConcurrencyType)
     var year = NSManagedObject()
     
     
@@ -40,19 +40,24 @@ class YearViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         context = appDelegate.persistentContainer.viewContext
-        let entitiy = NSEntityDescription.entity(forEntityName: "Year", in: context)
+        let entitiy = NSEntityDescription.entity(forEntityName: "Years", in: context)
         year = NSManagedObject(entity: entitiy!, insertInto: context)
         year.setValue(selectedDays, forKey: "days")
         fetchDays()
     }
     
     func fetchDays() {
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Year")
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Years")
         request.returnsObjectsAsFaults = false
+        var date = 0;
         do {
-            let result = try self.context.fetch(request) as! [NSManagedObject]
-            for data in result {
-                selectedDays = data.value(forKey: "days") as! Set<IndexPath>
+            let results = try self.context.fetch(request) as! [NSManagedObject]
+            for result in results {
+                let resultDate = result.value(forKey: "date") as! Int
+                if resultDate > date {
+                    selectedDays = result.value(forKey: "days") as! Set<IndexPath>
+                    date = resultDate
+                }
             }
         } catch {
             print("failed to fetch...")
@@ -132,6 +137,7 @@ class YearViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if !selectedDays.contains(indexPath) {
             selectedDays.insert(indexPath)
             year.setValue(selectedDays, forKey: "days")
+            year.setValue((indexPath.section * self.days) + indexPath.row + 1, forKey: "date")
             do {
                try context.save()
             } catch {
@@ -145,6 +151,7 @@ class YearViewController: UIViewController, UICollectionViewDelegate, UICollecti
         cell?.backgroundColor = UIColor.white
         selectedDays.remove(indexPath)
         year.setValue(selectedDays, forKey: "days")
+        year.setValue((indexPath.section * self.days) + indexPath.row + 1, forKey: "date")
         do {
             try context.save()
         } catch {
